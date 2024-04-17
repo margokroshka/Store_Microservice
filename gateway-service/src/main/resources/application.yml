@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: gateway-service
+  cloud:
+    gateway:
+      routes:
+        - id: university-service
+          uri: lb://university-service
+          predicates:
+            - Path=/university-service/**
+          filters:
+            - RewritePath=/university-service, /
+eureka:
+  client:
+    prefer-same-zone-eureka: true
+    healthcheck:
+      enabled: true
+    instance-info-replication-interval-seconds: 2
+    service-url:
+      defaultZone: ${EUREKA_SERVICE_URI:http://localhost:8181/eureka/}
+  instance:
+    prefer-ip-address: true
+
+server:
+  port: 8762
