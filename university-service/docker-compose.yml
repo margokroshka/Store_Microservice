@@ -1,0 +1,27 @@
+services:
+  university_db:
+    image: postgres:15
+    volumes:
+      - university_db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: university_db
+      POSTGRES_USER: university
+      POSTGRES_PASSWORD: university
+    ports:
+      - "5432:5432"
+  keycloak:
+    image: quay.io/keycloak/keycloak:24.0
+    environment:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+      KC_DB: postgres
+      KC_DB_URL: jdbc:postgresql://university_db/university_db
+      KC_DB_USERNAME: university
+      KC_DB_PASSWORD: university
+    ports:
+      - "9090:8080"
+    command:
+      - start-dev
+
+volumes:
+  university_db:

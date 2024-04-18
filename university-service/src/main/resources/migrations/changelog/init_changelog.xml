@@ -1,0 +1,56 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd
+                   http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet id="1" author="Margarita Baranovskaya">
+        <sql>
+            create table product
+            (
+                id    integer          not null
+                    constraint product_pk
+                        primary key,
+                name  varchar          not null,
+                price double precision not null
+            );
+
+            alter table product
+                owner to postgres;
+
+
+
+        </sql>
+    </changeSet>
+    <changeSet id="2" author="Margarita Baranovskaya">
+        <sql>
+            create table users
+            (
+                id       integer not null
+                    constraint users_pk
+                        primary key,
+                login    varchar not null,
+                password varchar not null
+            );
+
+            alter table users
+                owner to postgres;
+
+        </sql>
+    </changeSet>
+    <changeSet id="3" author="Margarita">
+        <sql>
+            create table "order"
+            (
+                id      integer not null
+                    constraint key_name
+                        primary key,
+                user_id integer not null
+            );
+
+            alter table "order"
+                owner to postgres;
+
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>

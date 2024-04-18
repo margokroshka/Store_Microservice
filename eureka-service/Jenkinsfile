@@ -1,0 +1,20 @@
+pipeline {
+  agent any
+  stages {
+    stage('Build') {
+      steps {
+        sh './gradlew clean build'
+      }
+    }
+    stage('Deploy') {
+      steps {
+        sh './gradlew bootBuildImage --imageName=universities/eureka-service'
+        sh 'docker rm -f eureka_service 2> /dev/null'
+        sh 'docker run -d --name eureka_service --net=host -p 8181:8181 -t universities/eureka-service'
+      }
+    }
+  }
+  tools {
+    jdk 'JDK_17_new'
+  }
+}

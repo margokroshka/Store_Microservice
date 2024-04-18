@@ -1,0 +1,20 @@
+pipeline {
+  agent any
+  stages {
+    stage('Build') {
+      steps {
+        sh './gradlew clean build --no-daemon'
+      }
+    }
+    stage('Deploy') {
+      steps {
+        sh './gradlew bootBuildImage --imageName=universities/university-service --no-daemon'
+        sh 'docker rm -f university_service 2> /dev/null'
+        sh 'docker run -d --name university_service --net=host -p 8081:8081 -t universities/university-service'
+      }
+    }
+  }
+  tools {
+    jdk 'JDK_17_new'
+  }
+}

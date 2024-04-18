@@ -1,0 +1,30 @@
+---
+server:
+  port: ${UNIVERSITY_SERVICE_PORT:8081}
+
+spring:
+  application:
+    name: university-service
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:9090/realms/master
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: postgres
+  jpa:
+    open-in-view: false
+
+eureka:
+  client:
+    prefer-same-zone-eureka: true
+    healthcheck:
+      enabled: true
+    instance-info-replication-interval-seconds: 2
+    service-url:
+      defaultZone: ${EUREKA_SERVICE_URI:http://localhost:8181/eureka/}
+  instance:
+    prefer-ip-address: true
