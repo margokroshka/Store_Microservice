@@ -17,5 +17,5 @@ public interface ProductService {
 
     void deleteById(Integer id) throws Exception;
 
-    List<ProductResponse> getAllBooksByName(String name);
+    List<ProductResponse> getAllProductsByName(String name);
 }

@@ -1,0 +1,17 @@
+
+s	java:S116&"WRename this field "product_name" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(’©œÙ8™áî1
+L
+java:S1874!"/Remove this use of "NotNull"; it is deprecated.(š«É£8õßúàî1
+W
+java:S1128"5Remove this unused import 'jakarta.validation.Valid'.(ÀãÅ”ûÿÿÿÿ8úï¦áî1
+H
+java:S1128
+"+Remove this unused import 'lombok.Builder'.(§’Ğß8œ¢Öâî1
+J
+java:S1128"(Remove this unused import 'lombok.Data'.(÷í«ÿÿÿÿÿ8ÌĞÖâî1
+G
+java:S1128"*Remove this unused import 'lombok.Getter'.(ùÒµÙ8ƒğÕâî1
+G
+java:S1128"*Remove this unused import 'lombok.Setter'.(ó¸çµ8ƒğÕâî1
+I
+java:S1128",Remove this unused import 'lombok.ToString'.(¹ÂÄÓ8ƒğÕâî1

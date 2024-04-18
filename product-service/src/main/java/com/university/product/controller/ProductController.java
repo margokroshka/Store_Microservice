@@ -65,7 +65,7 @@ public class ProductController {
     )
     @GetMapping("/getName/{name}")
     public ResponseEntity<List<ProductResponse>> getProductByName(@PathVariable String name) {
-        return ResponseEntity.ok().body(productService.getAllBooksByName(name));
+        return ResponseEntity.ok().body(productService.getAllProductsByName(name));
     }
 
 

@@ -63,7 +63,7 @@ public class ProductServiceImpl implements ProductService{
     }
 
     @Override
-    public List<ProductResponse> getAllBooksByName(String name) {
+    public List<ProductResponse> getAllProductsByName(String name) {
         return productRepository.findProductByName(name)
                 .stream()
                 .map(book -> modelMapper.map(book, ProductResponse.class))
